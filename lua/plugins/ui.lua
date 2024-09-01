@@ -1,18 +1,4 @@
 return {
-  -- changing few settings mostly for hidden files
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_hidden = false,
-          hide_gitignored = false,
-          visible = true,
-        },
-      },
-    },
-  },
   -- disabling no info message
   {
     "folke/noice.nvim",

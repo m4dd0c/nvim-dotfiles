@@ -1,4 +1,3 @@
--- comment if working in frontend
 return {
   {
     "pmizio/typescript-tools.nvim",
