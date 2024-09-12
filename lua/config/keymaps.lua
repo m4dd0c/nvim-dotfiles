@@ -23,20 +23,11 @@ keymap.set("n", "<C-m>", "<C-o>", opts)
 -- Restart LSP when backslash pressed twice
 keymap.set("n", "\\\\", "<cmd>LspRestart<cr>", opts)
 
--- Swap the behavior of p and P
-keymap.set("n", "p", '"_dP', opts) -- Mimic P behavior
-keymap.set("n", "P", '"_dp', opts) -- Mimic p behavior
-
 -- select all
 keymap.set("n", "<C-a>", "gg<S-v>G", opts)
 
 -- split window
 keymap.set("n", "ss", ":vsplit<Return>", opts)
-
--- eslint enable and disable on demand
-local lspConfig = require("lspconfig")
-keymap.set("n", "<leader>se", [[<cmd>lua require('lspconfig').eslint.manager:start()<cr>]], opts)
-keymap.set("n", "<leader>te", [[<cmd>lua require('lspconfig').eslint.manager:stop()<cr>]], opts)
 
 -- goto window
 keymap.set("n", "sh", "<C-w>h", opts)
@@ -62,8 +53,9 @@ keymap.set("n", "J", vim.diagnostic.open_float, opts)
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+keymap.set("n", "<C-J>", function()
+  vim.diagnostic.goto_prev()
+end, opts)
 
--- focus opened neotree
-keymap.set("n", "<leader>z", "<cmd>Neotree focus<cr>", opts)
--- change quotes to template literals quotes to grave
+-- Keymap to surround text with { ` ` }
 -- TODO:
