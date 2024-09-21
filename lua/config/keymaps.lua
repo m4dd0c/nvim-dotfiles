@@ -35,6 +35,9 @@ keymap.set("n", "sj", "<C-w>j", opts)
 keymap.set("n", "sk", "<C-w>k", opts)
 keymap.set("n", "sl", "<C-w>l", opts)
 
+-- visual mode
+keymap.set("n", ";;", "<S-v>", opts)
+
 -- tabs
 keymap.set("n", "te", ":tabedit<Return>", opts)
 keymap.set("n", "td", ":tabclose<Return>", opts)
