@@ -57,9 +57,6 @@ keymap.set("n", "J", vim.diagnostic.open_float, opts)
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
-keymap.set("n", "<C-J>", function()
-  vim.diagnostic.goto_prev()
-end, opts)
 
 -- todo finder
 keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
