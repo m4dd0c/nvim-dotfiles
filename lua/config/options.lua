@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.wrap = true
 vim.opt.relativenumber = true
+vim.o.guifont="JetBrainsMono NF:h14"
+vim.o.shell = "pwsh"

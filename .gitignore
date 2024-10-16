@@ -6,6 +6,3 @@ debug
 foo.*
 *.log
 data
-lazy-lock.json
-stylua.toml
-*:Zone.Identifier
