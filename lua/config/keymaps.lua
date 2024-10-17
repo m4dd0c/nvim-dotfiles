@@ -60,3 +60,8 @@ end, opts)
 
 -- todo finder
 keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
+
+
+-- C++ code runner in LazyVim
+vim.api.nvim_set_keymap('n', '<leader>r', ':term g++ % -o %:r && %:r.exe<CR>', opts)
+
