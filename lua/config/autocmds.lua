@@ -7,3 +7,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste",
 })
 
+
+-- before saving the files run 'x' command
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" }, -- Add other file types if needed
+  callback = function()
+    vim.cmd("EslintFixAll")
+  end,
+})
