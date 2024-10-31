@@ -61,7 +61,13 @@ end, opts)
 -- todo finder
 keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
 
+-- for html-live-server
+keymap.set('n', "<leader>hs", ":LiveServerStart<CR>", opts)      -- start-live-server
+keymap.set('n', "<leader>he", ":LiveServerStop<CR>", opts)      -- stop/end-live-server
+-- for markdown-live-server
+keymap.set('n', "<leader>ms", ":MarkdownPreview<CR>", opts)      -- start-live-server
+keymap.set('n', "<leader>me", ":MarkdownPreviewStop<CR>", opts) -- stop/end-live-server
+
 
 -- C++ code runner in LazyVim
 vim.api.nvim_set_keymap('n', '<leader>r', ':term g++ % -o %:r && %:r.exe<CR>', opts)
-
