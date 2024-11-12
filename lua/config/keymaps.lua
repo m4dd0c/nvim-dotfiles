@@ -45,10 +45,16 @@ keymap.set("n", "td", ":tabclose<Return>", opts)
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
 
--- buffer
+-- delete current buffer
 keymap.set('n', 'ff', function()
-  require('snacks.bufdelete').delete() -- Prompts to save or discard changes if modified
+  require('snacks.bufdelete').delete()
 end, opts)
+
+-- delete all buffer
+keymap.set('n', 'fa', function()
+  require('snacks.bufdelete').all()
+end, opts)
+
 keymap.set("n", "fd", "<cmd>b#<cr>", opts)
 
 -- Diagnostics
