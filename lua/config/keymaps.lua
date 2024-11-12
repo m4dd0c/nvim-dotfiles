@@ -46,7 +46,9 @@ keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
 
 -- buffer
-keymap.set("n", "ff", LazyVim.ui.bufremove, opts)
+keymap.set('n', 'ff', function()
+  require('snacks.bufdelete').delete() -- Prompts to save or discard changes if modified
+end, opts)
 keymap.set("n", "fd", "<cmd>b#<cr>", opts)
 
 -- Diagnostics
@@ -62,10 +64,10 @@ end, opts)
 keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
 
 -- for html-live-server
-keymap.set('n', "<leader>hs", ":LiveServerStart<CR>", opts)      -- start-live-server
+keymap.set('n', "<leader>hs", ":LiveServerStart<CR>", opts)     -- start-live-server
 keymap.set('n', "<leader>he", ":LiveServerStop<CR>", opts)      -- stop/end-live-server
 -- for markdown-live-server
-keymap.set('n', "<leader>ms", ":MarkdownPreview<CR>", opts)      -- start-live-server
+keymap.set('n', "<leader>ms", ":MarkdownPreview<CR>", opts)     -- start-live-server
 keymap.set('n', "<leader>me", ":MarkdownPreviewStop<CR>", opts) -- stop/end-live-server
 
 
