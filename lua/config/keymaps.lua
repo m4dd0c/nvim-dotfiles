@@ -70,11 +70,15 @@ end, opts)
 keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
 
 -- for html-live-server
-keymap.set('n', "<leader>hs", ":LiveServerStart<CR>", opts)     -- start-live-server
-keymap.set('n', "<leader>he", ":LiveServerStop<CR>", opts)      -- stop/end-live-server
+keymap.set('n', "<leader>hs", ":LiveServerStart<CR>", opts)       -- start-live-server
+keymap.set('n', "<leader>he", ":LiveServerStop<CR>", opts)        -- stop/end-live-server
 -- for markdown-live-server
-keymap.set('n', "<leader>ms", ":MarkdownPreview<CR>", opts)     -- start-live-server
-keymap.set('n', "<leader>me", ":MarkdownPreviewStop<CR>", opts) -- stop/end-live-server
+keymap.set('n', "<leader>ms", ":MarkdownPreview<CR>", opts)       -- start-live-server
+keymap.set('n', "<leader>me", ":MarkdownPreviewStop<CR>", opts)   -- stop/end-live-server
+keymap.set('n', "<leader>mit", ":MDInsertToc<CR>", opts)          -- Insert Table of content
+keymap.set('n', "<leader>mil", ":MDListItemBelow<CR>", opts)      -- Insert a list item below
+keymap.set('n', "<leader>mct", ":MDTaskToggle<CR>", opts)         -- toggle checkbox
+keymap.set('n', "<leader>mcn", ":MDResetListNumbering<CR>", opts) -- Fix list numbering
 
 
 -- C++ code runner in LazyVim
