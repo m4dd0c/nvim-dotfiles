@@ -10,7 +10,6 @@ return {
     default_component_configs = {
       icon = {
         folder_closed = "󰉋",
-        folder_open = "󰷏", -- A stylish, open folder icon with a modern twist
       },
       indent = {
         with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
