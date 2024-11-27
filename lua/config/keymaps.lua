@@ -7,7 +7,7 @@ local t_opts = { silent = true }
 local keymap = vim.keymap
 
 -- Enter normal mode in terminal
-keymap.set('t', 'jj', [[<C-\><C-n>]], t_opts)
+keymap.set("t", "jj", [[<C-\><C-n>]], t_opts)
 
 -- Saving on jk
 keymap.set("i", "jk", "<cmd>w<cr><ESC>", opts)
@@ -51,13 +51,13 @@ keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
 
 -- Delete current buffer
-keymap.set('n', 'ff', function()
-  require('snacks.bufdelete').delete()
+keymap.set("n", "ff", function()
+  require("snacks.bufdelete").delete()
 end, opts)
 
 -- Delete all buffer
-keymap.set('n', 'fa', function()
-  require('snacks.bufdelete').all()
+keymap.set("n", "fa", function()
+  require("snacks.bufdelete").all()
 end, opts)
 
 -- Go to previously opened buffer
@@ -76,16 +76,16 @@ end, opts)
 keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
 
 -- for html-live-server
-keymap.set('n', "<leader>hs", ":LiveServerStart<CR>", opts) -- start-live-server
-keymap.set('n', "<leader>he", ":LiveServerStop<CR>", opts)  -- stop/end-live-server
+keymap.set("n", "<leader>hs", ":LiveServerStart<CR>", opts) -- start-live-server
+keymap.set("n", "<leader>he", ":LiveServerStop<CR>", opts) -- stop/end-live-server
 
 -- for markdown-live-server
-keymap.set('n', "<leader>ms", ":MarkdownPreview<CR>", opts)       -- start-live-server
-keymap.set('n', "<leader>me", ":MarkdownPreviewStop<CR>", opts)   -- stop/end-live-server
-keymap.set('n', "<leader>mit", ":MDInsertToc<CR>", opts)          -- Insert Table of content
-keymap.set('n', "<leader>mil", ":MDListItemBelow<CR>", opts)      -- Insert a list item below
-keymap.set('n', "<leader>mct", ":MDTaskToggle<CR>", opts)         -- toggle checkbox
-keymap.set('n', "<leader>mcn", ":MDResetListNumbering<CR>", opts) -- Fix list numbering
+keymap.set("n", "<leader>ms", ":MarkdownPreview<CR>", opts) -- start-live-server
+keymap.set("n", "<leader>me", ":MarkdownPreviewStop<CR>", opts) -- stop/end-live-server
+keymap.set("n", "<leader>mit", ":MDInsertToc<CR>", opts) -- Insert Table of content
+keymap.set("n", "<leader>mil", ":MDListItemBelow<CR>", opts) -- Insert a list item below
+keymap.set("n", "<leader>mct", ":MDTaskToggle<CR>", opts) -- toggle checkbox
+keymap.set("n", "<leader>mcn", ":MDResetListNumbering<CR>", opts) -- Fix list numbering
 
 -- C++ code runner in LazyVim
-vim.api.nvim_set_keymap('n', '<leader>r', ':term g++ % -o %:r && %:r.exe<CR>', opts)
+vim.api.nvim_set_keymap("n", "<leader>r", ":term g++ % -o %:r && %:r.exe<CR>", opts)
