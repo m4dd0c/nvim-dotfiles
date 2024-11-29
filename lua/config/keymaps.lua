@@ -22,6 +22,9 @@ keymap.set("i", "kk", "<C-o>a", opts)
 -- Go to end of line in insertmode
 keymap.set("i", "KK", "<C-o>A", opts)
 
+-- greatest remap
+keymap.set("x", "p", [["_dP]])
+
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-o>", opts)
 
@@ -88,4 +91,7 @@ keymap.set("n", "<leader>mct", ":MDTaskToggle<CR>", opts) -- toggle checkbox
 keymap.set("n", "<leader>mcn", ":MDResetListNumbering<CR>", opts) -- Fix list numbering
 
 -- C++ code runner in LazyVim
-vim.api.nvim_set_keymap("n", "<leader>r", ":term g++ % -o %:r && %:r.exe<CR>", opts)
+keymap.set("n", "<leader>r", ":term g++ % -o %:r && %:r.exe<CR>", opts)
+
+-- EslintFixAll
+keymap.set("n", "F", ":EslintFixAll<CR>", opts)

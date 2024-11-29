@@ -14,3 +14,17 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 --     vim.cmd("EslintFixAll")
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client_id = args.data.client_id
+    local buf = args.buf
+    local file_path = vim.api.nvim_buf_get_name(buf)
+
+    -- detach LSP client for files inside node_modules
+    if string.match(file_path, "node_modules") then
+      vim.lsp.buf_detach_client(buf, client_id)
+      return
+    end
+  end,
+})

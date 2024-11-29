@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -41,8 +42,10 @@ return {
         hide_dotfiles = false,
         hide_hidden = false,
         hide_gitignored = false,
-        visible = true,
-        hide_by_filename = { ".DS_Store", "node_modules" },
+        visible = false,
+        hide_by_name = {
+          "node_modules",
+        },
       },
     },
     window = {
@@ -56,3 +59,16 @@ return {
     },
   },
 }
+
+-- return {
+--   "nvim-neo-tree/neo-tree.nvim",
+--   version = "*",
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--     "nvim-tree/nvim-web-devicons",
+--     "MunifTanjim/nui.nvim",
+--   },
+--   opts = {
+--     close_if_last_window = true,
+--   },
+-- }
