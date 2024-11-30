@@ -6,6 +6,20 @@ local opts = { silent = false, noremap = true }
 local t_opts = { silent = true }
 local keymap = vim.keymap
 
+-- Create a function to generate keymap options, with default values fallback
+-- @param description string: Description for the keymap.
+-- @param silent string: Determines If user want to show notification of performance.
+-- @param noremap string: Determines If keymap can be re-mapped or not.
+-- @returns opts: An option table look like following: { desc:string, silent:bool, noremap:bool }
+local function gen_opt(description, silent, remap)
+  local opts = {
+    silent = silent or true,
+    noremap = remap or true,
+    desc = description or nil,
+  }
+  return opts
+end
+
 -- Enter normal mode in terminal
 keymap.set("t", "jj", [[<C-\><C-n>]], t_opts)
 
@@ -76,22 +90,28 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 -- todo finder
-keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", opts)
+keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", gen_opt("Find all Todos"))
 
 -- for html-live-server
-keymap.set("n", "<leader>hs", ":LiveServerStart<CR>", opts) -- start-live-server
-keymap.set("n", "<leader>he", ":LiveServerStop<CR>", opts) -- stop/end-live-server
+keymap.set("n", "<leader>h", "<Nop>", gen_opt("HTML Live Server"))
+keymap.set("n", "<leader>hs", ":LiveServerStart<CR>", gen_opt("Start HTML Live Server")) -- start-live-server
+keymap.set("n", "<leader>he", ":LiveServerStop<CR>", gen_opt("End HTML Live Server")) -- stop/end-live-server
 
 -- for markdown-live-server
-keymap.set("n", "<leader>ms", ":MarkdownPreview<CR>", opts) -- start-live-server
-keymap.set("n", "<leader>me", ":MarkdownPreviewStop<CR>", opts) -- stop/end-live-server
-keymap.set("n", "<leader>mit", ":MDInsertToc<CR>", opts) -- Insert Table of content
-keymap.set("n", "<leader>mil", ":MDListItemBelow<CR>", opts) -- Insert a list item below
-keymap.set("n", "<leader>mct", ":MDTaskToggle<CR>", opts) -- toggle checkbox
-keymap.set("n", "<leader>mcn", ":MDResetListNumbering<CR>", opts) -- Fix list numbering
+keymap.set("n", "<leader>m", "<Nop>", gen_opt("Markdown"))
+keymap.set("n", "<leader>ms", ":MarkdownPreview<CR>", gen_opt("Start Markdown Live Preview")) -- start-live-server
+keymap.set("n", "<leader>me", ":MarkdownPreviewStop<CR>", gen_opt("End Markdown Live Preview")) -- stop/end-live-server
+
+keymap.set("n", "<leader>mi", "<Nop>", gen_opt("Markdown Insert"))
+keymap.set("n", "<leader>mit", ":MDInsertToc<CR>", gen_opt("Insert Markdown TOC", false)) -- Insert Table of content
+keymap.set("n", "<leader>mil", ":MDListItemBelow<CR>", gen_opt("Insert Markdown List item")) -- Insert a list item below
+
+keymap.set("n", "<leader>mc", "<Nop>", gen_opt("Markdown Change"))
+keymap.set("n", "<leader>mct", ":MDTaskToggle<CR>", gen_opt("Toggle Task Item - [*]")) -- toggle checkbox
+keymap.set("n", "<leader>mcn", ":MDResetListNumbering<CR>", gen_opt("Refector List Numbering")) -- Fix list numbering
 
 -- C++ code runner in LazyVim
 keymap.set("n", "<leader>r", ":term g++ % -o %:r && %:r.exe<CR>", opts)
 
 -- EslintFixAll
-keymap.set("n", "F", ":EslintFixAll<CR>", opts)
+keymap.set("n", "F", ":EslintFixAll && w<CR>", opts)

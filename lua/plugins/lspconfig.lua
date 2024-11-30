@@ -1,6 +1,5 @@
 local lspconfig = require("lspconfig")
 
--- Function to check if we're in a node_modules directory
 local function is_in_node_modules(path)
   return path:match("node_modules")
 end
@@ -15,31 +14,41 @@ local function custom_root_dir(fname)
 end
 
 -- Common on_attach function for performance optimization
-local on_attach = function(client)
+local on_attach = function(client, bufnr)
+  local file_path = vim.api.nvim_buf_get_name(bufnr)
   -- Detach client if in node_modules
-  if is_in_node_modules(vim.fn.expand("%:p")) then
-    client.stop()
+  if is_in_node_modules(file_path) then
+    -- Working good, however stops client that doesn't start again.
+    -- client.stop()
+    vim.lsp.buf_detach_client(bufnr, client.id)
+    vim.diagnostic.enable(false, { bufnr = bufnr })
   end
 end
 
--- TypeScript (ts_ls) configuration
-lspconfig.ts_ls.setup({
-  on_attach = on_attach,
-  root_dir = custom_root_dir,
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-})
-
--- ESLint configuration
-lspconfig.eslint.setup({
-  on_attach = on_attach,
-  root_dir = custom_root_dir,
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-})
-
--- TailwindCSS configuration
-lspconfig.tailwindcss.setup({
-  on_attach = on_attach,
-  root_dir = custom_root_dir,
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-})
-return lspconfig
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      eslint = {
+        settings = {
+          workingDir = {
+            mode = "auto",
+          },
+        },
+        on_attach = on_attach,
+        root_dir = custom_root_dir,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      },
+      ts_ls = {
+        on_attach = on_attach,
+        root_dir = custom_root_dir,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      },
+      tailwindcss = {
+        on_attach = on_attach,
+        root_dir = custom_root_dir,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      },
+    },
+  },
+}
