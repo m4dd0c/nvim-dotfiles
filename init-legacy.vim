@@ -6,6 +6,10 @@ imap JJ <Esc>
 imap jk <Esc>:w<CR>
 imap JK <Esc>:w<CR>
 
+" navigation made easy
+imap kk <C-o>a
+imap KK <Esc>A
+
 " hide highlight
 nnoremap <Esc> :noh<CR><Esc>
 
@@ -13,3 +17,4 @@ nnoremap <Esc> :noh<CR><Esc>
 set ignorecase
 set smartcase
 set noswapfile
+set clipboard=unnamedplus

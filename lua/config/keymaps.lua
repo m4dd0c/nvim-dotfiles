@@ -12,16 +12,19 @@ local keymap = vim.keymap
 -- @param noremap string: Determines If keymap can be re-mapped or not.
 -- @returns opts: An option table look like following: { desc:string, silent:bool, noremap:bool }
 local function gen_opt(description, silent, remap)
-  local opts = {
+  local options = {
     silent = silent or true,
     noremap = remap or true,
     desc = description or nil,
   }
-  return opts
+  return options
 end
 
 -- Enter normal mode in terminal
 keymap.set("t", "jj", [[<C-\><C-n>]], t_opts)
+-- resize made easy
+keymap.set("t", "<C-j>", [[<C-\><C-n><C-Down>]], t_opts)
+keymap.set("t", "<C-k>", [[<C-\><C-n><C-Up]], t_opts)
 
 -- Saving on jk
 keymap.set("i", "jk", "<cmd>w<cr><ESC>", opts)

@@ -49,6 +49,39 @@ return {
         root_dir = custom_root_dir,
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       },
+      clangd = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            "Makefile",
+            "configure.ac",
+            "configure.in",
+            "config.h.in",
+            "build.ninja"
+          )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
+            fname
+          ) or require("lspconfig.util").find_git_ancestor(fname)
+        end,
+        capabilities = {
+          offsetEncoding = { "utf-16" },
+        },
+        cmd = {
+          "clangd",
+          "--header-insertion=never",
+          -- "--query-driver=C:\\MinGW\\bin\\gcc.exe",
+          -- "--background-index",
+          -- "--clang-tidy",
+          -- "--function-arg-placeholders",
+          -- "--fallback-style=llvm",
+          -- "--all-scopes-completion",
+          -- "--completion-style=detailed",
+          -- "--compile-commands-dir=path\\to\\dir\\of\\compiler_commands.json" -- may or may not work
+        },
+        init_options = {
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
+        },
+      },
     },
   },
 }
