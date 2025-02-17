@@ -5,7 +5,6 @@
 local opts = { silent = false, noremap = true }
 local t_opts = { silent = true }
 local keymap = vim.keymap
-
 -- Create a function to generate keymap options, with default values fallback
 -- @param description string: Description for the keymap.
 -- @param silent string: Determines If user want to show notification of performance.
@@ -22,9 +21,6 @@ end
 
 -- Enter normal mode in terminal
 keymap.set("t", "jj", [[<C-\><C-n>]], t_opts)
--- resize made easy
-keymap.set("t", "<C-j>", [[<C-\><C-n><C-Down>]], t_opts)
-keymap.set("t", "<C-k>", [[<C-\><C-n><C-Up]], t_opts)
 
 -- Saving on jk
 keymap.set("i", "jk", "<cmd>w<cr><ESC>", opts)
@@ -117,4 +113,4 @@ keymap.set("n", "<leader>mcn", ":MDResetListNumbering<CR>", gen_opt("Refector Li
 keymap.set("n", "<leader>r", ":term g++ % -o %:r && %:r.exe<CR>", opts)
 
 -- EslintFixAll
-keymap.set("n", "F", ":EslintFixAll && w<CR>", opts)
+keymap.set("n", "F", ":EslintFixAll<CR>", opts)
