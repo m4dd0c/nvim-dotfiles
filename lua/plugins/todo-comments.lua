@@ -1,4 +1,3 @@
-
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
@@ -14,7 +13,7 @@ return {
       WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "warning" } },
       PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
       NOTE = { icon = " ", color = "hint", alt = { "INFO", "info", "note" } },
-      TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED", "tesing", "passed", "failed" } },
+      TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED", "testing", "passed", "failed" } },
     },
   },
 }
