@@ -1,6 +1,9 @@
+-- prettier not responding for some reason
 return {
   "stevearc/conform.nvim",
-  event = { "BufWritePre", "BufNewFile" },
+  event = { --[[ "BufWritePre", --]]
+    "BufNewFile",
+  },
   -- This will provide type hinting with LuaLS
   ---@module "conform"
   ---@type conform.setupOpts
@@ -35,6 +38,7 @@ return {
     default_format_opts = {
       lsp_format = "fallback",
       lsp_fallback = true,
+      timeout_ms = 7000,
     },
   },
 }
