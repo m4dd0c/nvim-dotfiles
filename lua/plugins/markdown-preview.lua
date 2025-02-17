@@ -1,4 +1,4 @@
--- don't forget to run `npm i` in download location
+-- don't forget to run `yarn i` in download location
 -- location: ~AppData/Local/nvim-data/lazy/markdown-preview.nvim
 return {
   "iamcco/markdown-preview.nvim",
