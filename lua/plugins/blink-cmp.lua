@@ -1,27 +1,24 @@
 return {
   "saghen/blink.cmp",
-
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
     keymap = {
-      -- set to 'none' to disable the 'default' preset
-      preset = "default",
+      -- Set the keymap preset to 'enter' to accept completions with <Enter>
+      preset = "enter",
 
+      -- Retain your existing key mappings
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
 
-      -- disable a keymap from the preset
-      ["<C-e>"] = {},
-
-      -- show with a list of providers
+      -- Show a list of providers
       ["<A-;>"] = {
         function(cmp)
           cmp.show({ providers = { "snippets" } })
         end,
       },
 
-      -- control whether the next command will be run when using a function
+      -- Control whether the next command will be run when using a function
       ["<C-n>"] = {
         function(cmp)
           if some_condition then
