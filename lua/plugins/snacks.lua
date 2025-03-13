@@ -13,6 +13,8 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    scroll = {},
+    ---@type table<string, snacks.win.Config>
     styles = {
       notification = {
         wo = { wrap = true },
