@@ -114,3 +114,32 @@ keymap.set("n", "<leader>r", ":term g++ % -o %:r && %:r.exe<CR>", opts)
 
 -- EslintFixAll
 keymap.set("n", "F", ":EslintFixAll<CR>", opts)
+
+-- All CopilotChat
+
+-- Run a new chat
+keymap.set("n", "<leader>zr", "<cmd>CopilotChat<CR>", opts)
+
+-- Toggle Copilot chat
+keymap.set("n", "<leader>zt", "<cmd>CopilotChatToggle<CR>", opts)
+
+-- Save Copilot chat
+keymap.set("n", "<leader>zs", "<cmd>CopilotChatSave<CR>", opts)
+
+-- Load Copilot chat
+keymap.set("n", "<leader>zl", "<cmd>CopilotChatLoad<CR>", opts)
+
+-- Ask Copilot to explain the selected code
+keymap.set("v", "<leader>ze", ":'<,'>CopilotChatExplain<CR>", opts)
+
+-- Ask Copilot for a code fix
+keymap.set("v", "<leader>zf", ":'<,'>CopilotChatFix<CR>", opts)
+
+-- Optimize selected code
+keymap.set("v", "<leader>zo", ":'<,'>CopilotChatOptimize<CR>", opts)
+
+-- Generate documentation for selected code
+keymap.set("v", "<leader>zd", ":'<,'>CopilotChatDocs<CR>", opts)
+
+-- Generate documentation for selected code
+keymap.set("v", "<leader>zt", "CopilotChatTests<CR>", opts)

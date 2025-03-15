@@ -4,7 +4,7 @@ return {
   cmd = "Copilot",
   event = "InsertEnter",
   opts = {
-    suggestion = { enabled = false },
+    suggestion = { enabled = true, auto_trigger = true, keymap = { accept = "<Tab>" } },
     panel = { enabled = false },
   },
 }
