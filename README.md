@@ -50,3 +50,6 @@
   - [wezterm](https://github.com/wez/wezterm) **_(Linux, Macos & Windows)_**
   - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
 - [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim)
+
+  
+**NOTE:** Use [[Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) + [pwsh](https://apps.microsoft.com/detail/9mz1snwt0n5d?hl=en-US&gl=US)] for better experience.
