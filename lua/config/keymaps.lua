@@ -88,9 +88,6 @@ keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
 
--- todo finder
-keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", gen_opt("Find all Todos"))
-
 -- for html-live-server
 keymap.set("n", "<leader>h", "<Nop>", gen_opt("HTML Live Server"))
 keymap.set("n", "<leader>hs", ":LiveServerStart<CR>", gen_opt("Start HTML Live Server")) -- start-live-server
