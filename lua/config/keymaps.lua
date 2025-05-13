@@ -141,5 +141,12 @@ keymap.set("v", "<leader>zo", ":'<,'>CopilotChatOptimize<CR>", opts)
 -- Generate documentation for selected code
 keymap.set("v", "<leader>zd", ":'<,'>CopilotChatDocs<CR>", opts)
 
--- Generate documentation for selected code
+-- Generate TestCases for selected code
 keymap.set("v", "<leader>zt", "CopilotChatTests<CR>", opts)
+
+-- PLUGIN DEV ENV
+-- Run a Lua file in nvim-env
+keymap.set("n", "<leader>xs", function()
+  vim.cmd("w")
+  vim.cmd("source %")
+end, opts)
