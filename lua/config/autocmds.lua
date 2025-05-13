@@ -28,8 +28,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
-
--- create a command to open the dashboard
-vim.api.nvim_create_user_command("Dashboard", function()
-  require("snacks").dashboard()
-end, {})
