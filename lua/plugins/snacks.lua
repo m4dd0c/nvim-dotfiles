@@ -7,7 +7,8 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     picker = {
-
+      enabled = true,
+      hidden = true,
       sources = {
         explorer = {
           layout = {
