@@ -8,6 +8,8 @@ local M = {
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
+
+    -- INFO: Temporarily disabled
     "zbirenbaum/copilot-cmp",
   },
   event = { "InsertEnter" },
